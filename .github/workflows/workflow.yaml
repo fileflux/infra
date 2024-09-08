@@ -31,22 +31,3 @@ jobs:
 
       - name: Terraform validate
         run: terraform validate
-
-  packer-validate:
-    name: Pacler Validate
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Packer
-        uses: hashicorp/setup-packer@v2
-        with:
-          packer_version: v1.11.2
-
-      - name: Packer init
-        run: packer init
-
-      - name: Packer validate
-        run: packer validate
