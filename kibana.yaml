@@ -1,0 +1,11 @@
+global:
+  defaultStorageClass: gp2
+  storageClass: gp2
+elasticsearch:
+  hosts: 
+    - elasticsearch.logging.svc.cluster.local
+  port: 9200
+service:
+  type: LoadBalancer
+  annotations:
+  

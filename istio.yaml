@@ -1,0 +1,20 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  profile: empty  
+  components:
+    ingressGateways:
+    - name: istio-ingressgateway
+      enabled: true
+    pilot:
+      enabled: true
+  values:
+    global:
+      proxy:
+        logLevel: warning
+        componentLogLevel: misc:debug
+        accessLogEncoding: JSON
+        accessLogFile: /dev/stdout
+    gateways:
+      istio-ingressgateway:
+        type: LoadBalancer

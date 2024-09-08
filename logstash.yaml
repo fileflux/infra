@@ -1,0 +1,21 @@
+global:
+  defaultStorageClass: gp2
+  storageClass: gp2
+resourcesPreset: "large"
+input: |-
+  http {
+    port => 8080
+  }
+
+filter: |-
+  grok {
+    match => { "message" => ".*INFO in _internal: 127\.0\.0\.1.*" }
+  }
+
+
+output: |-
+  stdout { codec => rubydebug }
+  elasticsearch {
+    hosts => ["elasticsearch.logging.svc.cluster.local:9200"]
+    index => "cloudwatch-logs-%{+YYYY.MM.dd}"
+  }
