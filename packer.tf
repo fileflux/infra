@@ -1,7 +1,7 @@
 resource "null_resource" "packer" {
   provisioner "local-exec" {
     command = <<EOT
-      packer build -machine-readable ../ami/ami.pkr.hcl | tee output.txt
+      packer build -machine-readable ./ami/ami.pkr.hcl | tee output.txt
       ami_id=$(tail -2 output.txt | head -2 | awk 'match($0, /ami-.*/) { print substr($0, RSTART, RLENGTH) }')
       echo "Extracted AMI ID: $ami_id"
       rm -rf ami_id.txt
