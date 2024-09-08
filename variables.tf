@@ -208,26 +208,21 @@ variable "nsquota" {
 
 variable "cloudflare_email" {
   type    = string
-  default = "chlokesh1306@gmail.com"
 }
 variable "cloudflare_api_key" {
   type    = string
-  default = "0793a00e7e4bdda65b21fb34ea8903d8b6b7c"
 }
 
 variable "domain_name" {
   type    = string
-  default = "s3.lokesh.cloud"
 }
 
 variable "grafana_domain_name" {
   type    = string
-  default = "dashboard.lokesh.cloud"
 }
 
 variable "cloudflare_zone_id" {
   type    = string
-  default = "8effcfd85e73a9dbaccbda956f99e15b"
 }
 
 variable "cockroachdb_release_name" {
@@ -252,7 +247,6 @@ variable "db_username" {
 
 variable "db_password" {
   type    = string
-  default = "admin"
 }
 
 variable "db_host" {
